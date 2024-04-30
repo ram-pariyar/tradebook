@@ -149,6 +149,33 @@ if(isset($_POST['submit']))
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="welcome" red>
+                <?php 
+
+
+
+
+
+$url = "https://lpidvgx8if.execute-api.us-east-1.amazonaws.com/tradebook/";
+$options = array(
+    'http'=>array(
+        'header'=> "Content-type: application/x-www=form-urlencoded\r\n",
+        'method'=> 'GET',
+    ),
+);
+ $context = stream_context_create($options);
+ $result = file_get_contents($url, false, $context);
+
+ $response = json_decode($result);
+?>
+                <h3 style="
+    text-align: center;
+    color: #d67b22;
+    font-size: 23px;
+"> <?php echo $response->body; ?></h3>
+            </div>
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <?php
@@ -349,7 +376,7 @@ if(isset($_POST['submit']))
                     <div class="book-block">
                         <div class="tag">New</div>
                         <div class="tag-side"><img src="img/tag.png"></div>
-                        <img class="block-center img-responsive" src="img/new/4.jpg">
+                        <img class="block-center img-responsive" src="https://tradebookb.s3.amazonaws.com/ACA-1.jpg">
                         <hr>
                         Kiran s SSC Mathematics Chapterwise Solutions <br>
                         Rs 289 &nbsp
